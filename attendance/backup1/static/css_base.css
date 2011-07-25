@@ -1,0 +1,11 @@
+#header_strip{
+	position: fixed;
+	opacity: 0.8;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+}		
+
+body{
+	padding: 20px;
+}

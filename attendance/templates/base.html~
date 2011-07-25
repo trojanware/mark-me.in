@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.
+w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US">
+  <head>
+    <title>{% block title %}Personal Register{% endblock title %}</title>
+    {% block header_strip_css_page %}
+      <style type="text/css" media="screen">
+		@import url(/static/css_base.css);
+	  </style>	  		  
+    {% endblock header_strip_css_page %}
+	{% block css_include %}	{% endblock css_include %}
+	{% block header_strip_javascript %}	
+		<script type="text/javascript" src="/static/jquery.js">	</script>
+		<script type="text/javascript">		
+		function display_header_strip(){
+			try{
+			canv = document.getElementById("header");
+			context = canv.getContext('2d');
+			context.fillStyle = '#33332f';
+			context.fillRect(0,0,1367,30);
+			context.font = "15px impact";
+			context.textAlign = 'center';
+			context.fillStyle = '#ffffff';
+			//context.fillText('Logged in as: ',60,20,100);
+			} catch(e){}
+		}
+		window.addEventListener('load',display_header_strip,true);
+		</script>
+	{% endblock header_strip_javascript %}	
+    {% block footer_javascript_page %}
+      
+    {% endblock footer_javascript_page %}
+  </head>
+  <body id="body">			
+	<div id=header_strip>
+		<canvas id="header" height="30" width="1367"></canvas>
+	</div>
+	{% block heading %}
+	<h1></h1>
+	{% endblock heading %}
+	{% block body %}
+    <p>Greetings!!</p>	
+	{% endblock body %}
+  </body>
+</html>
+

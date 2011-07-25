@@ -1,0 +1,73 @@
+body{
+  color:#000000;
+  background:#ffffff;
+  padding: 20px;
+  opacity: 1.0;
+  z-index: 1;
+}
+
+
+#wrapper{
+  margin:0 auto;
+  width:700px;
+}
+
+h1{
+  text-transform:uppercase;
+}
+
+blockquote{
+  margin: 0 100px;  
+  padding:20px;
+  border-left:3px solid #888888;
+  border-right:3px solid #888888;
+  background: #ffffff;
+  opacity: 0.6;
+}
+
+blockquote p{
+  font-size:1.2em;
+  font-style:italic;
+  font-weight:bold;  
+}
+
+blockquote p:hover{
+  background:#ff0000;  
+}
+
+.form1{
+  font-size:1.2em;
+  width: 250px;
+  background: #ffffff;
+  color: #000000;
+  position: fixed;
+  left: 1359px;
+  top: 2px;
+  z-index : 3;
+  /*opacity: 0.5;*/
+  height: 604px;
+  display: block;
+  float: left;
+  /*margin:0 150px;*/
+}
+
+#can{
+  opacity: 0.9;
+  position:fixed;
+  top: 0px;
+  left: 1px;
+  z-index: 2  
+}
+
+/*#can.hidden{
+  visibility:hidden;
+}*/
+#strip{
+	position: fixed;
+	top: 0px;
+	left: 1px;
+	opacity: 0.8;
+}
+#UName{
+	z-index: 2;
+}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block css_include %}
+	<style type="text/css" media="screen">
+		@import url(/static/css_home.css);
+	</style>
+{% endblock css_include %}
+{% block footer_javascript_page %}
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$('#btn').click(function () {
+			$('<canvas id="can" class="clear" height="700" width="1367" ></canvas>').insertAfter('#btn');	  
+	  		$('<div class="form1" id="form"><iframe frameborder=\'no\' allowtransparency=\'true\' id="login" height =\"400\"width=\"250\" src=\"login/\" /></div>').insertAfter('#can');
+	  		$('.form1').animate({left: '-=270px'},'slow');
+	  		$('<button id="btnOff" onclick=\"turn_off()\">Hide</button>').insertAfter('.form1 iframe');	  
+	  		loadDemo();
+		});
+	});
+	function loadDemo(){
+		try{
+	  canvas = document.getElementById("can");
+	  context = canvas.getContext('2d');
+	  var my_gradient = context.createLinearGradient(0,0,1500,0);
+	  my_gradient.addColorStop(0,'black');
+	  my_gradient.addColorStop(1,'white');
+	  context.fillStyle = "#000000";
+	  context.fillRect(0,0,1367,700);} catch(e){document.write("blah");}
+	  return context;
+	}
+	function turn_off() {
+        can = document.getElementById('can');
+	    parent = can.parentNode;	    
+	    parent.removeChild(document.getElementById('can'));
+	    body = document.getElementById('body');	    
+	    body.removeChild(document.getElementById('form'));
+	}
+	</script>
+{% endblock footer_javascript_page %}
+{% block body %}
+	<button id="btn">Login</button>
+{% endblock body %}

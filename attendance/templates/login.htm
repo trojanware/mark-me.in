@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block heading %}
+	<h1>Login</h1>
+{% endblock heading %}
+{% block css_include %}
+	<style type="text/css">
+	#result{
+		/*border: 1px, 1px, 1px, 1px solid #000000;*/
+	}
+	.cli{
+		cursor: pointer;
+		border: 2px solid;
+		border-radius: 25px;
+		background: #5555ff;
+		border-color:#1111ff;
+		margin-right: 100px;
+		margin-top: 30px;
+		padding-right: 10px;
+		padding-left: 5px;
+		float: left;
+	}
+	.cli:hover{
+		border-color: #A82F3F;
+	}
+	#loading{
+		top: 600px;
+		left: 10px;
+	}
+	</style>
+{% endblock css_include %}
+{% block footer_javascript_page %}
+	<script type="text/javascript" src="/static/jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+	$('.cli').bind('click',function () {	
+		$('<div id=\"loading\">Loading...</div>').insertAfter('#result');	
+		$.get("/processLogin/",{'uname':$('#uname').val(),'password':$('#password').val()},function(reply){
+			//$('#result')[0].innerHTML="reply is: "+reply.accepted;
+			if(reply.accepted=="True"){
+				parent.location.href = "/details/"
+			}
+			else {
+				$('#result')[0].innerHTML='Wrong username/password!!'
+			}
+			$('#loading').css('background-color','#ffffff');
+			$('#loading').empty();
+		});
+	});
+	});
+	</script>
+{% endblock footer_javascript_page %}
+{% block body %}
+	<p id="result"> </p>
+	<form name="input">
+		Username: <input type="text" id="uname" />
+		<br />
+		Password: <input type="password" id="password" />
+		<!--<button id="btnSubmit">Submit</button>-->
+		<div class="cli">Login</div>
+	</form>	
+{% endblock body %}

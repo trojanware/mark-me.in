@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block css_include %}
+	<style type="text/css" media="screen">
+		@import url(/static/css_home.css);		
+	</style>
+{% endblock css_include %}
+{% block footer_javascript_page %}
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$('#btn').click(function () {
+			$('<canvas id="can" class="clear" height="700" width="1367" ></canvas>').insertAfter('#btn');	  
+	  		$('<div class="form1" id="form"><iframe frameborder=\'no\' allowtransparency=\'true\' id="login" height =\"400\"width=\"250\" src=\"/login/\" /></div>').insertAfter('#can');
+	  		$('.form1').animate({left: '-=270px'},'slow');
+	  		$('<button id="btnOff" onclick=\"turn_off()\">Hide</button>').insertAfter('.form1 iframe');	  
+	  		loadDemo();
+			//$('<div id=\"loading\">Loading...</div>').insertAfter('#btn');
+		});
+		$('#btnSignup').click(function () {
+			uname = ($('#uname').val()).trim();
+			pass1 = $('#pass1').val().trim();
+			pass2 = $('#pass2').val().trim();
+			fname = $('#fname').val().trim();
+			lname = $('#lname').val().trim();
+			if(uname==""){alert("Error: Username cannot be empty!");}
+			else if(pass1==""){alert("Error: Password field cannot be empty!");}
+			else if(fname==""){alert("Error: Firstname field cannot be empty!");}
+			else if(lname==""){alert("Error: Lastname field cannot be empty!");}
+			else if(pass1!=pass2){alert("Error: Passwords do not match!");}
+			else{
+				$('<div id=\"loading\">Loading...</div>').insertAfter('#header_strip');
+				$.get('/processStage1/',{'uname':uname,'pass':pass1,'fname':fname,'lname':lname},function(reply) {
+					if(reply.status=="Success"){
+						$('#loading').empty();
+						location.href = "/Signup/"+reply.id+"/";
+					}
+					else
+						alert("Username is already taken!");
+					//$('#loading').css('background-color','#ffffff');
+			node = document.getElementById('loading');
+			parent = node.parentNode;
+			parent.removeChild(document.getElementById('loading'));
+					//$('#loading').empty();
+				});			
+			}			
+		});
+	});
+	function loadDemo(){
+		try{
+	  canvas = document.getElementById("can");
+	  context = canvas.getContext('2d');
+	  var my_gradient = context.createLinearGradient(0,0,1500,0);
+	  my_gradient.addColorStop(0,'black');
+	  my_gradient.addColorStop(1,'white');
+	  context.fillStyle = "#000000";
+	  context.fillRect(0,0,1367,700);} catch(e){document.write("blah");}
+	  return context;
+	}
+	function turn_off() {
+        can = document.getElementById('can');
+	    parent = can.parentNode;	    
+	    parent.removeChild(document.getElementById('can'));
+	    body = document.getElementById('body');	    
+	    body.removeChild(document.getElementById('form'));
+	}
+	</script>
+{% endblock footer_javascript_page %}
+{% block body %}
+	<div class="Signup">
+		<h3>New User?</h3>
+		<form>
+			<div>Username: <input type="text" id="uname" /></div>
+			<br />
+			<div>Password: <input type="password" id="pass1" />
+				<div class="scndCol">Confirm Password: <input type="password" id="pass2"/></div>
+			</div>
+			<br />
+			<div>First Name: <input type="text" id="fname" />
+				<div class="scndCol">Last Name: <input type="text" id="lname" /></div>
+			</div>
+			<br />			
+		</form>
+		<div class="myBtn" id="btnSignup">Sign Up!</div><br />
+	</div>
+	<br />
+	<button id="btn">Login</button>
+{% endblock body %}

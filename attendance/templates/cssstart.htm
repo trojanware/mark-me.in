@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title class="text">Test Page</title>
+    <style type="text/css" media="screen">
+      @import url(/static/css1.css);
+    </style>
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+	$('#btn').click(function () {	  
+	  $('<canvas id="can" class="clear" height="700" width="1367" ></canvas>').insertAfter('#wrapper');	  
+	  $('<div class="form1" id="form"><iframe id="login" width=\"250\" src=\"http://www.google.com\" /></div>').insertAfter('#can');
+	  $('.form1').animate({left: '-=270px'},'slow');
+	  $('<button id="btnOff" onclick=\"turn_off()\">Hello</button>').insertAfter('.form1 iframe');	  
+	  var context = loadDemo();
+      });
+    });    
+    function turn_off() {
+            can = document.getElementById('can');
+	    parent = can.parentNode;	    
+	    parent.removeChild(document.getElementById('can'));
+	    body = document.getElementById('body');	    
+	    body.removeChild(document.getElementById('form'));
+	}
+
+    function loadDemo() {
+	  try{
+	  canvas = document.getElementById("can");
+	  context = canvas.getContext('2d');
+	  var my_gradient = context.createLinearGradient(0,0,1500,0);
+	  my_gradient.addColorStop(0,'black');
+	  my_gradient.addColorStop(1,'white');
+	  context.fillStyle = my_gradient;
+	  context.fillRect(0,0,1367,700);} catch(e){document.write("blah");}
+	  return context;
+	}
+    function getMainScreen() {
+	btn = document.getElementById('btnOff');
+	document.write("dd");
+      }
+    </script>
+    <script type="text/javascript">
+      /*function loadDemo() {
+	  canvas = document.getElementById("can");
+	  context = canvas.getContext('2d');
+	  var my_gradient = context.createLinearGradient(0,0,300,0);
+	  my_gradient.addColorStop(0,'black');
+	  my_gradient.addColorStop(1,'white');
+	  context.fillStyle = '#00ff00';
+	  context.fillRect(0,0,1367,700);
+	}*/
+		function display_header_strip(){
+			canvas = document.getElementById("header_strip");
+			 context = canvas.getContext('2d');
+			context.fillStyle = '#000000';
+			context.fillRect(0,0,1367,30);
+			context.font = "15px impact";
+			context.textAlign = 'center';
+			context.fillStyle = '#ffffff';
+			context.fillText('Logged in as: ',60,20,100);
+		}
+		window.addEventListener("load",display_header_strip,true);
+    </script>
+  </head>
+  <body id="body">
+	<div id="strip">
+		<canvas id="header_strip" height="30" width="1367" >
+<div id="UName">
+						<p>Logged in as: </p>
+					</div>
+		</canvas>
+	</div>
+    <div id="wrapper">
+      <h1 class="text">A heading</h1>
+      <p class="text">A paragraph of text which is exciting</p>
+      <blockquote>
+	<p class="text">&ldquo;A debt can be repayed  only by adding on more debt&rdquo;</p>
+	
+      </blockquote>
+      <p class="text">Yet another paragraph</p>
+    </div>
+    <!--<div class="form1">
+      <p class="text">This is another paragraph intended to be on of the div block above!</p>
+    </div> -->
+    <button id="btn">Bring it on!!</button>
+    <!--<canvas id="can" class="clear" height="700" width="1367" ></canvas>-->		
+	<div>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+		<p>dfsff</p>
+	</div>
+  </body>
+</html>

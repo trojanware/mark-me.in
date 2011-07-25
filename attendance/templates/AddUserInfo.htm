@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block css_include %}
+	<style type="text/css" media="screen">
+		@import url(/static/css_newuser.css);
+			.st1{
+				padding: 10px;
+			}
+			.txt{
+				margin-left: 30px;
+			}
+			#txtSem{
+				margin-left: 5px;
+			}
+			.myBtn{
+			cursor: pointer;
+		border: 2px solid;
+		border-radius: 25px;
+		background: #5555ff;
+		border-color:#1111ff;
+		float: left;
+		padding-right: 5px;
+		padding-left: 5px;
+		margin-bottom: 10px;
+		}			
+	</style>
+{% endblock css_include %}
+{% block footer_javascript_page %}
+	<script type="text/javascript" src="/static/jquery.json-2.2.js"></script>
+	<script type="text/javascript" src="/static/js_Userinfo.js"></script>
+{% endblock footer_javascript_page %}
+{% block heading %}
+	<h1 class="heading">Enter Basic Information</h1>
+{% endblock heading %}
+{% block body %}
+	<div id="sidebar">
+		<p id="basic-info">1. Info</p>
+		<p id="tt">2. Time Table</p>
+	</div>
+	<!--<iframe frameborder="no" id="mainspace" src="/stage1/" />-->
+	<div id="workspace" class="mainspace">
+		<form id="stage1">
+			<div class="st1">College: <input type="text" class="txt" id="Coll" /><br /></div>
+			<div class="st1">Branch: <input type="text" class="txt" id="txtBranch" /><br /></div>
+			<div class="st1">Semester: <input type="text" class="txt" id="txtSem" /><br /></div>
+			<div class="st1">Section: <input type="text" class="txt" id="txtSec"/><br /></div>
+			<div class="st1">USN: <input type="text" class="txt" id="txtUsn"/><br /></div>
+		</form>	
+	<div class="myBtn" id="btnCon">Continue</div>	
+	</div>	
+	<div id="id_user" style="visibility:hidden;">{{id_user}}</div>
+{% endblock body %}

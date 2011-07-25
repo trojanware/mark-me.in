@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load extratag %}
+{% block css_include %}
+	<style type="text/css" media="screen">
+		@import url(/static/css_Details.css);
+	</style>
+{% endblock css_include %}
+{% block footer_javascript_page %}
+	<script type="text/javascript" src="/static/js_Details.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#subhead').mouseenter(function() {
+				$('.details').css("display","block");
+				//$('.details1').css("display","block");
+			});
+			$('#subhead').mouseleave(function() {
+				$('.details').css("display","none");
+				//$('.details1').css("display","none");
+			});
+		});
+	</script>
+{% endblock footer_javascript_page %}
+{% block heading %}
+	<h1> </h1>
+{% endblock heading %}
+
+{% block body %}
+<body>
+	<div id="todayTimetable">
+		<h2>Today's Timetable</h2>
+		<table border=0 id="tblT"  >
+			<tr>				
+				{% for key,value in dd|sortVals %}
+					 {%if value != 0 %} 					
+					<th id="{{key}}">Hour:{{value}}</th>
+					 {%endif %}
+				{% endfor %}				
+			</tr>
+			
+			{% for key,value in dd|sortVals %}				
+				<!-- {%if value != 0 %} -->
+					<tr>	
+						<td>Hour:{{value}}</td>							
+						<td class="subj">{{key}}</td>
+						<td><input type="radio" class="chk" id="pre{{key}}" name="grp{{key}}"  />Present</td>
+						<td><input type="radio" class="chk" id="abs{{key}}" name="grp{{key}}" />Absent</td>
+						<td><input type="radio" class="chk" id="let{{key}}" name="grp{{key}}" />Let Off</td>
+					</tr>
+				<!-- {%endif %}-->
+			{% endfor %}			
+		</table>	
+		<!--<div class="myBtn" id="btnChange" >Update Timetable</div>--><div class="myBtn" id="btnUpdate" >Logout</div>
+	</div>
+	<table border=0 cellpadding=4 id="tbl">
+		<tr>
+			<th id="subhead">Subject</th>
+			<!--<div class="details"><th>Total</th>
+			<th>Absent</th></div>-->
+			<th>Percentage</th>
+		</tr>
+	{% for subject in Subjects %}
+		<tr>
+			<td class="subjName" id="{{subject.name}}">{{ subject.name }}</td>
+			<!--<div class="details"><td id="total{{subject}}"> 8subject.totaldays *</td></div>
+			<div class="details"><td id="absent{{subject}}">* subject.absent *</td></div>-->
+			<td id="percent{{subject}}">{{subject.percentage}}</td>
+		</tr>		
+	{% endfor %}
+	</table>	
+	<div id="user" style="visibility:hidden;">{{user}}</div>
+	<div id="day" style="visibility:hidden;">{{day}}</div>
+	<div id="change"></div>
+</body onload=loadPercentage()>
+{% endblock body %}
+

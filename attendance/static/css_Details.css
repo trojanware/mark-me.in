@@ -1,0 +1,70 @@
+#tbl{
+	border-collapse: collapse;
+	width: 25%;
+}
+
+#tbl td, #tbl th{
+	border: 1px solid;
+	padding: 3px 7px 2px 2px;
+	margin-right: 70px;
+}
+
+#floatDiv{
+	background: #9999ff;
+	cursor: pointer;
+}
+
+.details th{
+	display: none;
+}
+
+#todayTimetable{
+	float:right;
+	margin-right: 500px;
+	border-collapse: collapse;
+	width: 100px;	
+}
+
+#row1{
+	/*border-bottom: 3px solid;*/
+}
+
+#tblT td, #tblT th{
+	/*border: 1px solid;*/
+	padding: 3px 7px 2px 2px;
+}
+
+.chk{
+	cursor: pointer;
+}
+
+#btnUpdate{
+	display: block;
+	margin-top: 20px;
+	margin-left: 100px;
+	float: right;
+}
+
+#btnChange{
+	display: block;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: right;
+}
+
+#tblT{
+	width: 100%;
+}
+
+#todayTimetable{
+	width: 20%;
+	margin-left: 20px;
+	
+	padding-left: 40px;
+}
+
+#change{
+	margin-right: 50px;
+	margin-top: 10px;
+	float: right;
+}

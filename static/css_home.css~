@@ -1,0 +1,49 @@
+.form1{
+  font-size:1.2em;
+  width: 250px;
+  background: #ffffff;
+  color: #000000;
+  position: fixed;
+  left: 1359px;
+  top: 2px;
+  z-index : 3;
+  /*opacity: 0.5;*/
+  height: 604px;
+  display: block;
+  float: left;
+  /*margin:0 150px;*/
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+
+#can{
+  opacity: 0.9;
+  position:fixed;
+  top: 0px;
+  left: 1px;
+  z-index: 2  
+}
+
+.Signup{
+	margin-left: 100px;
+}
+.scndCol{
+	float: right;
+	margin-right: 500px;	
+}
+.Signup .myBtn{
+	/*display: block;*/
+	float: left;
+	margin-top: 10px;
+}
+#loading{
+	position: fixed;
+	left: 600px;
+	top: 450px;
+	background-color: #33332f;
+	color: #ffffff;
+	padding: 5px;
+	z-index: 4;
+	border-radius: 10px;
+	opacity: 0.8;
+}

@@ -1,0 +1,6 @@
+www:
+  type: python 
+  instances: 2 
+
+sql:
+  type: mysql

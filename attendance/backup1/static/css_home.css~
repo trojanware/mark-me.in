@@ -1,0 +1,27 @@
+.form1{
+  font-size:1.2em;
+  width: 250px;
+  background: #ffffff;
+  color: #000000;
+  position: fixed;
+  left: 1359px;
+  top: 2px;
+  z-index : 3;
+  /*opacity: 0.5;*/
+  height: 604px;
+  display: block;
+  float: left;
+  /*margin:0 150px;*/
+}
+
+#can{
+  opacity: 0.9;
+  position:fixed;
+  top: 0px;
+  left: 1px;
+  z-index: 2  
+}
+
+#login{
+	border: 0px, 0px, 1px, 1px solid #888888;
+}

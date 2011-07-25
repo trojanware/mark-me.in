@@ -1,0 +1,27 @@
+#sidebar{
+	border-right: 1px solid;
+	width: 150px;
+	height: 474px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	display: block;
+	float:left;
+}
+
+.mainspace{
+	float: left;
+	display: block;
+	margin-left: 80px;
+	height: 474px;
+	width: 1000px;
+}
+
+/*#workspace{
+	margin-left: 50px;
+	padding: 50px;
+}*/
+
+#btnMore{
+	float: right;
+	margin-right: 730px;
+}

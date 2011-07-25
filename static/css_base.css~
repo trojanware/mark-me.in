@@ -1,0 +1,37 @@
+#header_strip{
+	position: fixed;
+	opacity: 0.8;
+	top: 584px;
+	left: 0px;
+	z-index: 2;
+}		
+
+body{
+	padding: 20px;
+}
+.myBtn{
+			cursor: pointer;
+		border: 2px solid;
+		border-radius: 25px;
+		background: #5555ff;
+		border-color:#1111ff;
+		padding-right: 5px;
+		padding-left: 5px;
+		/*display: block;*/
+}
+.myBtn:hover{
+	/*border: 3px solid;*/
+	border-color: #A82F3F;
+}
+
+#loading{
+	position: fixed;
+	left: 600px;
+	top: 450px;
+	background-color: #33332f;
+	color: #ffffff;
+	padding: 5px;
+	z-index: 4;
+	border-radius: 10px;
+	opacity: 0.8;
+}

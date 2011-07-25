@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block heading %}
+	<h1>Login</h1>
+{% endblock heading %}
+{% block css_include %}
+	<style type="text/css">
+	#result{
+		/*border: 1px, 1px, 1px, 1px solid #000000;*/
+	}
+	</style>
+{% endblock css_include %}
+{% block footer_javascript_page %}
+	<script type="text/javascript" src="/static/jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+	$('.cli').bind('click',function () {
+		//document.write("Dfd");
+		//$(document).write("dd");
+		$.get("/processLogin/"+$('#uname').val()+"/"+$('#password').val()+"/",function(reply){
+			$('#result')[0].innerHTML=reply.accepted;
+			/*if(reply.accepted=="True"){
+				location.href = "/home/"
+			}
+			else {
+				$('#result')[0].innerHTML='Wrong username/password!!'
+			}*/
+		});
+	});
+	});
+	</script>
+{% endblock footer_javascript_page %}
+{% block body %}
+	<p id="result"> </p>
+	<form name="input">
+		Username: <input type="text" id="uname" />
+		<br />
+		Password: <input type="password" id="password" />
+		<button id="btnSubmit">Submit</button>
+		<p class="cli">Click Here</p>
+	</form>
+	<a href="#">New user</a>
+{% endblock body %}
